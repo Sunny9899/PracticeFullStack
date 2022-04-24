@@ -1,14 +1,11 @@
-import {
-    ADD_TO_DO,
-    GET_TO_DO,
-} from "./actionTypes";
+import { ADD_TODO_SUCCESS, GET_TODO_SUCCESS } from "./actionTypes";
 
-export const addToDo = (payload)=>({
-    type:ADD_TO_DO,
-    payload,
-})
+export const addTodoSuccess = (payload) => ({
+  type: ADD_TODO_SUCCESS,
+  payload,
+});
 
-export const getToDo = (payload)=>({
-    type:GET_TO_DO,
-    payload,
-})
+export const getTodoSuccess = (payload) => ({
+  type: GET_TODO_SUCCESS,
+  payload,
+});

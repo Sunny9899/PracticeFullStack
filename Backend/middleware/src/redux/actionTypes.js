@@ -1,4 +1,3 @@
-const ADD_TO_DO="ADD_TO_DO";
+export const ADD_TODO_SUCCESS = "ADD_TODO_SUCCESS";
 
-const GET_TO_DO="GET_TO_DO";
-
+export const GET_TODO_SUCCESS = "GET_TODO_SUCCESS";

@@ -1,22 +1,23 @@
-import {
-    ADD_TO_DO,
-    GET_TO_DO,
-} from "./actionTypes";
+import { ADD_TODO_SUCCESS, GET_TODO_SUCCESS } from "./actionTypes";
 
-const initialState={
-    todosData:[],
-}
+const initialData = {
+  todos: {
+    listedData: [],
+  },
+};
 
-export const reducer=(store=initialState, {type, payload})=>{
-    switch(type){
+export const reducer = (store = initialData, { type, payload }) => {
+  switch (type) {
+    case ADD_TODO_SUCCESS:
+      return { ...store, todos: { ...store.todos, loading: false } };
 
-        case ADD_TO_DO:
-            return{...store,...store.payload};
+    case GET_TODO_SUCCESS:
+      return {
+        ...store,
+        todos: { ...store.todos, loading: false, listedData: payload },
+      };
 
-        case GET_TO_DO:
-            return{...store};
-           
-        default:
-            return{store};    
-    }
-}
+    default:
+      return { ...store };
+  }
+};
