@@ -1,0 +1,12 @@
+<%- include('./partials/Header') -%>
+
+<main>
+    <ul>
+    <% employeeData.forEach(function(d){ %>
+        <li><%= d.name %></li>
+   <% }) %>
+    </ul>
+</main>
+
+
+<%- include('./partials/Footer'); -%>
