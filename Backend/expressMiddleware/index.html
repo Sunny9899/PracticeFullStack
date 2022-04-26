@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Express Middleware</title>
+    <style>
+        #contain{
+            display: grid;
+            grid-template-columns: 250px 250px 250px 250px 250px;
+            gap:30px;
+        }
+        .box{
+            border:1px solid black;
+            width:100%;
+        }
+        .image{
+            width:100%;
+            height:60%;
+        }
+    </style>
+</head>
+<body>
+        <div id="contain">
+
+        </div>
+
+    <script>
+
+    let mainParent=document.getElementById("contain");
+
+     function showData(movies){
+        movies.forEach((movie)=>{
+
+            let divParent=document.createElement("div");
+            divParent.setAttribute("class","box");
+
+            let image=document.createElement("img");
+            image.src=movie.movie_poster;
+            image.setAttribute("class","image");
+
+            let title=document.createElement("p");
+            title.innerText=movie.movie_title;
+ 
+            let release=document.createElement("p");
+            release.innerText=movie.release_year;            
+
+            let genre=document.createElement("p");
+            genre.innerText=movie.movie_genre;
+
+            divParent.append(image,title,release,genre);
+            mainParent.append(divParent)
+        })               
+
+     }
+
+     async function getData(){
+         let freshData=await fetch("http://localhost:3000/server").then((data)=>{
+             let data2=data.json();
+             return data2;
+         }).then(({data})=>{
+             showData(data);
+         })
+     }
+     getData();
+    </script>
+</body>
+</html>
